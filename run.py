@@ -3,9 +3,7 @@ import pickle
 
 app = Flask(__name__)
 
-def load_model():
-    filepath = 'ml_src/model_v1.pkl'
-    return pickle.load(filepath)
+model = pickle.load(open('ml_src/model_v1.pkl','rb'))
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -17,7 +15,7 @@ def index():
         close = int(form.get('close'))
         adj_close = int(form.get('adj_close'))
         userinp = [[high,low,open,close,adj_close]]
-        prediction = load_model.predict(userinp)
+        prediction = model.predict(userinp)
         return render_template('index.html',high=high,low=low,open=open,close=close,adj_close=adj_close, prediction=prediction)
     return render_template('index.html')
 
