@@ -2,6 +2,45 @@
 
 {% block body %}
 
-<h1>test run</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Stock Price Prediction</h2>
+            <form method="post" class="card" style="background-color: blueviolet;">
+                <div class="card-body">
+                    <div class="mb-6">
+                        <h2>Enter the details</h2>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="high" class="form-label">High</label>
+                        <input type="text" class="form-control" id="high" name="high">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="loe" class="form-label">Low</label>
+                        <input type="text" class="form-control" id="low" name="low">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="open" class="form-label">Open</label>
+                        <input type="text" class="form-control" id="open" name="open">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="close" class="form-label">Close</label>
+                        <input type="text" class="form-control" id="close" name="close">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="adj_close" class="form-label">Adj Close</label>
+                        <input type="text" class="form-control" id="adj_close" name="adj_close">
+                    </div>
+                    <div class="">
+                        <button type="submit" class="btn btn-primary">SUBMIT</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div>
+            <h2>{{Prediction}}</h2>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
