@@ -1,5 +1,6 @@
 pickle
 matplotlib
+plotly
 sklearn
 yfinance
 flask

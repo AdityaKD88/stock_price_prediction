@@ -5,7 +5,11 @@ app = Flask(__name__)
 
 model = pickle.load(open('ml_src/model_v1.pkl','rb'))
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/predict', methods=['GET','POST'])
 def index():
     if request.method=="POST":
         form=request.form
