@@ -13,14 +13,15 @@ def home():
 def index():
     if request.method=="POST":
         form=request.form
-        high = int(form.get('high'))
-        low = int(form.get('low'))
-        open = int(form.get('open'))
-        close = int(form.get('close'))
-        adj_close = int(form.get('adj_close'))
+        high = float(form.get('high'))
+        low = float(form.get('low'))
+        open = float(form.get('open'))
+        close = float(form.get('close'))
+        adj_close = float(form.get('adj_close'))
         userinp = [[high,low,open,close,adj_close]]
         prediction = model.predict(userinp)
-        return render_template('index.html',high=high,low=low,open=open,close=close,adj_close=adj_close, prediction=prediction)
+        output = round(prediction[0], 2)
+        return render_template('index.html',high=high,low=low,open=open,close=close,adj_close=adj_close, output=output)
     return render_template('index.html')
 
 if __name__ == '__main__':
